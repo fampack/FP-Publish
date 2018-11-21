@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Chat" representedClassName="Chat" syncable="YES">
+        <attribute name="chatId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatSenderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatSenderName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatTimeStamp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="convoId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaLength" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaUrlOriginal" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="mediaUrlThumb" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Conversation" inverseName="relationship" inverseEntity="Conversation" syncable="YES"/>
+    </entity>
+    <entity name="Conversation" representedClassName="Conversation" syncable="YES">
+        <attribute name="chatMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chatSenderId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="convoId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imgUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isChatOpen" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isOtherUserOnline" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastMessagetime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastModifiedTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="otherUserId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherUserName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typing" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unReadCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Chat" inverseName="relationship" inverseEntity="Chat" syncable="YES"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="userId" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Conversation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Chat" positionX="151" positionY="-18" width="128" height="225"/>
+        <element name="Conversation" positionX="-126" positionY="72" width="128" height="255"/>
+        <element name="Users" positionX="-414" positionY="54" width="128" height="75"/>
+    </elements>
+</model>
